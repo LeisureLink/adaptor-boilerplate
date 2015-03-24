@@ -1,5 +1,6 @@
 {
-  "name": "BaseAdapter",
+  //TODO: change this name to the name of the adapter project
+  "name": "test",
   "version": "0.0.0",
   "private": true,
   "scripts": {
@@ -28,6 +29,5 @@
     "chai": "1.10.0",
     "chai-xml": "0.2.0",
     "mocha": "2.0.1",
-    "xml2js": "^0.4.4"
   }
 }

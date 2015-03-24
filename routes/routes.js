@@ -1,5 +1,5 @@
 var pingController =  require('../endpoints/controllers/pingController');
-var stubController = require('../endpoints/controllers/stub_supply_Controller');
+var stubController = require('../endpoints/controllers/stub_controller');
 
 module.exports = function (app, router){
     router.get('/ping', pingController.ping);

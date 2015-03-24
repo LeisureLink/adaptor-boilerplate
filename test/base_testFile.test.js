@@ -7,7 +7,7 @@ describe('Boilerplate tests', function () {
         //TODO: Initialize stuff here
         done()
     });
-    describe('Boilerplate test 1', function () {
+    describe('Should probably add some real unit tests here where beneficial', function () {
         it('should run test 1 successfully', function (done) {
            'Hello world!'.should.deep.equal('Hello world!');
            done();
