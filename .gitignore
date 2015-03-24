@@ -1,0 +1,8 @@
+.idea
+.orig
+.dll
+.suo
+.njsproj
+node_modules/**
+logs*
+test-reports.xml
