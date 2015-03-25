@@ -8,6 +8,7 @@ var errorhandler = require('errorhandler');
 
 module.exports = function (app, config) {
     app.set('port', config.port);
+    app.set('case sensitive routing', true);
     app.use(morgan('dev'));
     app.use(methodOverride());
     app.use(bodyParser.json());

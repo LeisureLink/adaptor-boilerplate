@@ -1,6 +1,5 @@
 ﻿var winston = require('winston');
-var config = require('../config/config');
-var $ = {};
+var config = require(ROOT+'/config/config');
 
 var customColors = {
     error: 'red',

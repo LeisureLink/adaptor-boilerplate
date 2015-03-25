@@ -1,9 +1,9 @@
-var config      = require('../../config/config');
-var messenger   = require('../../messengers/messenger.js');
+var config      = require(ROOT+'/config/config');
+var messenger   = require(ROOT+'/messengers/messenger');
 //TODO: import proper transformer
-var transformer = require('../transformers/stub_Transformer');
+var transformer = require(ROOT+'/endpoints/transformers/stub_Transformer');
 var async       = require('async');
-var logger      = require('../../loggers/logger');
+var logger      = require(ROOT+'/loggers/logger');
 $ = {};
 
 $.stub = function(request, response){

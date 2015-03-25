@@ -1,6 +1,5 @@
 var request = require('request');
 var js2xml = require('js2xmlparser');
-
 var $ = {};
 
 $.get = function(url, args, callback) {

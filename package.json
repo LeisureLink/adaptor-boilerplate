@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "test": "nodejs ./node_modules/.bin/mocha --recursive -R xunit test/ > test-reports.xml"
+    "test": "nodejs ./node_modules/.bin/mocha --recursive -R xunit test/ > test-reports.xml",
   },
   "dependencies": {
     "async":  "0.9.0",
