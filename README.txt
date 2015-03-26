@@ -3,7 +3,7 @@ If you are impatient and would just like to do it on your own, just search the p
 
 1) Go to package.json and change the name to that of the adapter. Make sure to delete the comment.
 2) From the command line, navigate to the root directory (where this file is located) and run 'npm install'
-3) From the same command line, run 'mocha test'. All tests should pass.
+3) From the same command line, run 'mocha'. All tests should pass.
 4) At this point you should have a running express server. If you type 'run app.js', should should be able to open up your browser and navigate to http://localhost:3016/ping.
 5) Go to config/config.js and fix all of the TODOs.
 6) Go to routes/routes.js and add a new route for the endpoint you would like to add.
