@@ -1,12 +1,12 @@
 It looks like you're trying to build an adapter! This readme will help guide you through the process.
 If you are impatient and would just like to do it on your own, just search the project for 'TODO' and follow directions
 
-1) Go to pacakage.json and change the name to that of the adapter. Make sure to delete the comment
+1) Go to package.json and change the name to that of the adapter. Make sure to delete the comment.
 2) From the command line, navigate to the root directory (where this file is located) and run 'npm install'
 3) From the same command line, run 'mocha test'. All tests should pass.
-4) At this point you should have a running express server. If you type 'run app.js', should should be able to open up your browser and navigate to http://localhost:3016/ping
-5) Go to config/config.js and fix all of the TODOs
-6) Go to routes/routes.js and add a new route for the endpoint you would like to add
+4) At this point you should have a running express server. If you type 'run app.js', should should be able to open up your browser and navigate to http://localhost:3016/ping.
+5) Go to config/config.js and fix all of the TODOs.
+6) Go to routes/routes.js and add a new route for the endpoint you would like to add.
 7) To operate the new endpoint, you will need to implement an endpoint controller. Controllers live in the endpoints directory.
 
     //NOTE to Pariveda: The concept of a validator came from the API, but we're not really using the validators in that fashion for adapters.
