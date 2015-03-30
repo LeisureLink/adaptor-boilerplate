@@ -28,20 +28,6 @@ $.stub = function(request, response){
             });
         },
 
-        //validate and encode received data
-        function validateAndEncodeResponse(rawData, callback){
-            //TODO: decide on appropriate validation (parallel or single, json or xml)
-            //httpResponseValidator.validateAndEncodeParallelResults(null, rawData, function(error, encodedData){
-            var DELETE_THIS_LINE___IT_IS_ONLY_HERE_SO_THIS_COMPILES = (function(){
-                if (error) {
-                    //TODO: define appropriate error messages. Remember to log identifying details like unitId, confirmation #, etc.
-                    //error.logMessage = 'Error communicating with LeisureLink API for rental unit ' + rentalUnitId + ': ' + error.stack;
-                    //error.responseMessage = 'Error communicating with the LesiureLink API';
-                }
-                return callback(error, encodedData);
-            });
-        },
-
         //transform data to appropriate format
         function transformData(encodedData, callback){
             //TODO: extract encoded data based on order
@@ -58,8 +44,8 @@ $.stub = function(request, response){
             });
         },
 
-        //send validated data
-        function handleValidatedDate(transformedData, callback) {
+        //send transformed data
+        function handleTransformedData(transformedData, callback) {
             //TODO: send the transformed data to the appropriate party, whether that's sending it in a response or sending it to an API endpoint
             //messenger.post(url, transformedData, null, function(error, results){
             // if (error) {
