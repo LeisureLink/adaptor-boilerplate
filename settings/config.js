@@ -18,7 +18,7 @@ else {
 }
 
 //Adapter settings
-$.port = 3016;
+$.port = process.env.PORT_NUMBER || 3016;
 
 $.leisureLink.URLs = {
     //static API URLs
@@ -35,7 +35,7 @@ $.leisureLink.URLs = {
     'rentalUnitStayRestrictions'  : function(unitId){return leisureLinkApiBase + 'rentalUnits/' + unitId + '/stayRestrictions'  },
     'rentalUnitCheckInInformation': function(unitId){return leisureLinkApiBase + 'rentalUnits/' + unitId + '/checkInInformation'},
     'rentalUnitSpecials'          : function(unitId){return leisureLinkApiBase + 'rentalUnits/' + unitId + '/specials'          },
-    'specialAvailability'         : function(specialId){return leisureLinkApiBase + 'special/'  + specialId                     },
+    'specialAvailability'         : function(specialId){return leisureLinkApiBase + 'special/'  + specialId                     }
 };
 
 //TODO: rename with the appropriate integrator (ResortZilla, Outrigger, etc.)
@@ -45,9 +45,10 @@ $.leisureLink.URLs = {
 
 //Log paths
 //TODO: change the pathname to include the appropriate integrator name
-$.infoLogPath   = path.join(__dirname, '../logs/INTEGRATOR_NAME_adaptor.log');
-$.errorLogPath  = path.join(__dirname, '../logs/INTEGRATOR_NAME_adaptor_error.log');
-
+$.logsRoot  = path.join(__dirname, '../logging/logs/');
+$.infoLog   = path.join($.logsRoot, 'INTEGRATOR_NAME_adaptor.log');
+$.errorLog  = path.join($.logsRoot, 'INTEGRATOR_NAME_adaptor_error.log');
+$.debugLog  = path.join($.logsRoot, 'INTEGRATOR_NAME_adaptor_debug.log');
 module.exports = $;
 
 

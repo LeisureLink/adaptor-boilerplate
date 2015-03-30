@@ -1,9 +1,11 @@
-var config      = require(ROOT+'/config/config');
-var messenger   = require(ROOT+'/messengers/messenger');
-//TODO: import proper transformer
-var transformer = require(ROOT+'/endpoints/transformers/stub_Transformer');
+var request     = require('request');
 var async       = require('async');
-var logger      = require(ROOT+'/loggers/logger');
+
+var config      = rootRequire('/settings/config');
+var messenger   = rootRequire('/messenger/messenger');
+//TODO: import proper transformer
+var transformer = rootRequire('/endpoints/transformers/stub_Transformer');
+var logger      = rootRequire('/logging/logger');
 $ = {};
 
 $.stub = function(request, response){
