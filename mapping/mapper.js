@@ -8,14 +8,13 @@ $.getRentalUnitIdMapping = function () {
     return rentalUnitMappings;
 };
 
-//TODO: actually fetch mappings from mapping service
 
 $.loadFromMappingService = function(){
     //TODO: load the mappings from the mapping service
 };
 
 $.loadFromStaticMappingFile = function(){
-    //TODO: load the mappings from the mapping service
+    //TODO: load the mappings from the static mapping file for dev
 };
 
 module.exports = $;
