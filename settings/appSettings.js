@@ -12,7 +12,7 @@ module.exports = function (app, config) {
     app.use(morgan('dev'));
     app.use(methodOverride());
     app.use(bodyParser.json());
-    app.use(bodyParser.text({type: 'text/xml'}));
+    app.use(bodyParser.text({type: 'appplication/xml'}));
     app.use(bodyParser.urlencoded({extended: true}));
     app.use(multer());
     app.use(cookieParser());
