@@ -8,12 +8,14 @@ $.INTEGRATOR = {};
 var leisureLinkApiBase;
 if (process.env.NODE_ENV === 'production') {
     //TODO: add production API key
-    $.leisureLink.apiKey = 'apiKey=ADD_API_KEY';
+    //this key is linked to the Gryphon's Lodge test properties
+    $.leisureLink.apiKey = 'apiKey=uovmruXNigFNerG025TrYVBZ9TDRwn4r';
     leisureLinkApiBase   = 'http://104.130.250.126/v1/';
 }
 else {
-    //TODO: add dev API key
-    $.leisureLink.apiKey = 'apiKey=ADD_API_KEY';
+    //TODO: add dev API key for the integrator
+    //this key is linked to the Gryphon's Lodge test properties
+    $.leisureLink.apiKey = 'apiKey=XvKxU-DG18Kc3dP7mlrLYPTRvtXGXzB-';
     leisureLinkApiBase   = 'http://23.253.68.152:803/v1/';
 }
 
