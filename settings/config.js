@@ -16,7 +16,7 @@ else {
     //TODO: add dev API key for the integrator
     //this key is linked to the Gryphon's Lodge test properties
     $.leisureLink.apiKey = 'apiKey=XvKxU-DG18Kc3dP7mlrLYPTRvtXGXzB-';
-    leisureLinkApiBase   = 'http://23.253.68.152:803/v1/';
+    leisureLinkApiBase   = 'http://api-dev.leisurelink.com/v1/';
 }
 
 //Adapter settings
