@@ -1,4 +1,3 @@
-﻿var path = require('path');
 
 var $ = {};
 $.leisureLink = {};
@@ -45,12 +44,6 @@ $.leisureLink.URLs = {
     //TODO: add appropriate integrator urls
 };
 
-//Log paths
-//TODO: change the pathname to include the appropriate integrator name
-$.logsRoot  = path.join(__dirname, '../logging/logs/');
-$.infoLog   = path.join($.logsRoot, 'INTEGRATOR_NAME_adaptor.log');
-$.errorLog  = path.join($.logsRoot, 'INTEGRATOR_NAME_adaptor_error.log');
-$.debugLog  = path.join($.logsRoot, 'INTEGRATOR_NAME_adaptor_debug.log');
 module.exports = $;
 
 

@@ -11,9 +11,10 @@ global.rootRequire = function(filePath){
 var app = require('express')();
 var config = rootRequire('/settings/config');
 rootRequire('/settings/appSettings')(app, config);
+var logger = rootRequire('/logging/logger');
 
 app.listen(app.get('port'), function () {
-    console.log('Express server listening on port ' + app.get('port'));
+    logger.log('info', 'Express server listening on port ' + app.get('port'));
 });
 
 module.exports = app;
