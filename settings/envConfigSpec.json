@@ -1,0 +1,10 @@
+{
+  // TODO: Change this name to the name of the adapter project. Then delete these lines.
+  // TODO: name must only consist of letters, numbers, and underscore
+  "name": "test",
+  "keys": [
+    "#/adaptor_port",
+    "#/leisure_link/api_base",
+    "#/leisure_link/api_key"
+  ]
+}

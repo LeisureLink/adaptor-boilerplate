@@ -1,0 +1,11 @@
+# This file is an example of what should be found on an adaptor's Confluence page
+# DO NOT CHECK SENSITIVE CONFIG VALUES INTO RESPOSITORY
+
+TEST_ADAPTOR_PORT=3016
+TEST_LEISURE_LINK_API_BASE=
+* Development: https://api-dev.leisurelink.com/v1
+* Production: http://104.130.250.126/v1/
+TEST_LEISURE_LINK_API_KEY=
+* NOTE - These keys are linked to the Gryphon's Lodge test properties
+* Development: apiKey=XvKxU-DG18Kc3dP7mlrLYPTRvtXGXzB-
+* Production: apiKey=uovmruXNigFNerG025TrYVBZ9TDRwn4r

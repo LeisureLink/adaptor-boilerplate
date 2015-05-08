@@ -1,49 +1,66 @@
-
+var logger = rootRequire('/logging/logger');
 var $ = {};
-$.leisureLink = {};
-//TODO: rename with the appropriate integrator (ResortZilla, Outrigger, etc.)
-$.INTEGRATOR = {};
 
-var leisureLinkApiBase;
-if (process.env.NODE_ENV === 'production') {
-    //TODO: add production API key
-    //this key is linked to the Gryphon's Lodge test properties
-    $.leisureLink.apiKey = 'apiKey=uovmruXNigFNerG025TrYVBZ9TDRwn4r';
-    leisureLinkApiBase   = 'http://104.130.250.126/v1/';
-}
-else {
-    //TODO: add dev API key for the integrator
-    //this key is linked to the Gryphon's Lodge test properties
-    $.leisureLink.apiKey = 'apiKey=XvKxU-DG18Kc3dP7mlrLYPTRvtXGXzB-';
-    leisureLinkApiBase   = 'http://api-dev.leisurelink.com/v1/';
-}
+var Configurator = require('env-configurator');
+var configSpec = require('./envConfigSpec');
+var config = new Configurator();
+require('./app_default_env');
 
-//Adapter settings
-$.port = process.env.PORT_NUMBER || 3016;
+$.init = function (callback) {
+    config.fulfill(configSpec, function (errors) {
+        if (errors) {
+            if (errors.length === 1) {
+                throw errors[0];
+            }
 
-$.leisureLink.URLs = {
-    //static API URLs
-    'quote'           : $.LL_API_base + 'quote',
-    'booking'         : $.LL_API_base + 'booking',
-    'cancellation'    : $.LL_API_base + 'cancel',
-    'rentalUnitsList' : $.LL_API_base + 'rentalUnits',
-    'updateLog'       : $.LL_API_base + 'updateLog',
+            errors.forEach(function (e) {
+                logger.log('error', '' + e);
+            });
 
-    //dynamic API URLs
-    'rentalUnitDetail'            : function(unitId){return leisureLinkApiBase + 'rentalUnits/' + unitId                        },
-    'rentalUnitAvailability'      : function(unitId){return leisureLinkApiBase + 'rentalUnits/' + unitId + '/availability'      },
-    'rentalUnitBaseRates'         : function(unitId){return leisureLinkApiBase + 'rentalUnits/' + unitId + '/baseRates'         },
-    'rentalUnitStayRestrictions'  : function(unitId){return leisureLinkApiBase + 'rentalUnits/' + unitId + '/stayRestrictions'  },
-    'rentalUnitCheckInInformation': function(unitId){return leisureLinkApiBase + 'rentalUnits/' + unitId + '/checkInInformation'},
-    'rentalUnitSpecials'          : function(unitId){return leisureLinkApiBase + 'rentalUnits/' + unitId + '/specials'          },
-    'specialAvailability'         : function(specialId){return leisureLinkApiBase + 'special/'  + specialId                     }
+            throw new Error('Configuration errors occurred, see the logs.');
+        } else {
+            populateConfig();
+            callback();
+        }
+    });
 };
 
-//TODO: rename with the appropriate integrator (ResortZilla, Outrigger, etc.)
+function get(name) {
+    // TODO: Update name to match name defined in envConfigSpec.json
+    return config.get('test', '#/' + name);
+}
+
+// TODO: Update populateConfig to assign config object properties using get()
+function populateConfig() {
+    $.port = process.env.PORT_NUMBER || get('adaptor_port');
+
+    $.leisureLink = {};
+    $.leisureLink.apiBase = get('leisure_link/api_base');
+    $.leisureLink.apiKey = get('leisure_link/api_key');
+
+    $.leisureLink.URLs = {
+        // Static API URLs
+        'quote'           : $.leisureLink.apiBase + '/quote',
+        'booking'         : $.leisureLink.apiBase + '/booking',
+        'cancellation'    : $.leisureLink.apiBase + '/cancel',
+        'rentalUnitsList' : $.leisureLink.apiBase + '/rentalUnits',
+        'updateLog'       : $.leisureLink.apiBase + '/updateLog',
+
+        // Dynamic API URLs
+        'rentalUnitDetail'            : function(unitId){return $.leisureLink.apiBase + '/rentalUnits/' + unitId                        },
+        'rentalUnitAvailability'      : function(unitId){return $.leisureLink.apiBase + '/rentalUnits/' + unitId + '/availability'      },
+        'rentalUnitBaseRates'         : function(unitId){return $.leisureLink.apiBase + '/rentalUnits/' + unitId + '/baseRates'         },
+        'rentalUnitStayRestrictions'  : function(unitId){return $.leisureLink.apiBase + '/rentalUnits/' + unitId + '/stayRestrictions'  },
+        'rentalUnitCheckInInformation': function(unitId){return $.leisureLink.apiBase + '/rentalUnits/' + unitId + '/checkInInformation'},
+        'rentalUnitSpecials'          : function(unitId){return $.leisureLink.apiBase + '/rentalUnits/' + unitId + '/specials'          },
+        'specialAvailability'         : function(specialId){return $.leisureLink.apiBase + '/special/'  + specialId                     }
+    };
+
+    //TODO: Rename with the appropriate integrator (ResortZilla, Outrigger, etc.)
+    $.INTEGRATOR = {};
     $.INTEGRATOR.URLs = {
-    //TODO: add appropriate integrator urls
-};
+        //TODO: Add appropriate integrator URLs
+    };
+}
 
 module.exports = $;
-
-
