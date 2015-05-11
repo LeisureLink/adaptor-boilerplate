@@ -1,11 +1,11 @@
 var request     = require('request');
 var async       = require('async');
 
-var config      = rootRequire('/settings/config');
-var messenger   = rootRequire('/messenger/messenger');
+var config      = rootRequire('settings/config');
+var messenger   = rootRequire('messenger/messenger');
 //TODO: import proper transformer
-var transformer = rootRequire('/endpoints/transformers/stub_Transformer');
-var logger      = rootRequire('/logging/logger');
+var transformer = rootRequire('endpoints/transformers/stub_Transformer');
+var logger      = rootRequire('logging/logger');
 $ = {};
 
 $.stub = function(request, response){

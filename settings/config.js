@@ -1,4 +1,4 @@
-var logger = rootRequire('/logging/logger');
+var logger = rootRequire('logging/logger');
 var $ = {};
 
 var Configurator = require('env-configurator');

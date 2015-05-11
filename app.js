@@ -6,13 +6,13 @@ var logger = require('./logging/logger');
 var path = require('path');
 var ROOT = path.resolve(__dirname);
 global.rootRequire = function(filePath){
-    return require(path.join(ROOT, filePath));
+    return require(path.join(ROOT, '/' + filePath));
 };
 
-var config = rootRequire('/settings/config');
+var config = rootRequire('settings/config');
 
 var loadApp = function () {
-    rootRequire('/settings/appSettings')(app, config);
+    rootRequire('settings/appSettings')(app, config);
 
     app.listen(app.get('port'), function () {
         logger.log('info', 'Express server listening on port ' + app.get('port'));
