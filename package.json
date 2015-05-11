@@ -24,7 +24,8 @@
     "serve-favicon": "~2.1.3",
     "underscore": "^1.7.0",
     "winston": "^0.8.3",
-    "xml2js": "^0.4.5"
+    "xml2js": "^0.4.5",
+    "env-configurator": "git+ssh://git@github.com/LeisureLink/env-configurator.git#develop"
   },
   "devDependencies": {
     "chai": "1.10.0",

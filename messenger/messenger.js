@@ -1,6 +1,6 @@
 var request = require('request');
 var js2xml = require('js2xmlparser');
-var httpValidator = rootRequire('/messenger/httpValidator');
+var httpValidator = rootRequire('messenger/httpValidator');
 var $ = {};
 
 $.get = function(url, args, callback) {

@@ -1,38 +1,29 @@
 ﻿var winston = require('winston');
-var config = rootRequire('/settings/config');
-var fs = require( 'fs' );
-
-if (!fs.existsSync(config.logsRoot)){
-    fs.mkdirSync(config.logsRoot);
-}
+winston.emitErrs = true;
 
 var transportsList = [
-        new (winston.transports.Console)({
-            level: 'silly',
-            colorize: true
-        }),
-        new (winston.transports.DailyRotateFile)({
-            name: 'file.info',
-            filename: config.infoLog,
-            level: 'info',
-            colorize: true
-        }),
-        new (winston.transports.DailyRotateFile)({
-            name: 'file.error',
-            filename: config.errorLog,
-            level: 'error',
-            colorize: true
-        })
-];
-
-if (process.env.NODE_ENV === 'development'){
-   transportsList.push(new (winston.transports.DailyRotateFile)({
-        name: 'file.debug',
-        filename: config.debugLog,
-        level: 'debug',
+    new (winston.transports.Console)({
+        timestamp: true,
+        prettyPrint: true,
+        depth: 1,
+        level: 'info',
+        handleExceptions: true,
         colorize: true
     })
-   );
+];
+
+if (process.env.LOCAL_LOG_FILE === 'true') {
+    transportsList.push(
+        new (winston.transports.File)({
+            level: 'debug',
+            filename: './logs.log',
+            handleExceptions: true,
+            json: true,
+            maxsize: 5242880, //5MB
+            maxFiles: 5,
+            colorize: false
+        })
+    );
 }
 
 module.exports = new (winston.Logger)({
@@ -41,7 +32,8 @@ module.exports = new (winston.Logger)({
         info:  'green',
         warn:  'yellow'
     },
-    transports: transportsList
+    transports: transportsList,
+    exitOnError: false
 });
 
 
