@@ -40,20 +40,20 @@ function populateConfig() {
 
     $.leisureLink.URLs = {
         // Static API URLs
-        'quote'           : $.leisureLink.apiBase + '/quote',
-        'booking'         : $.leisureLink.apiBase + '/booking',
-        'cancellation'    : $.leisureLink.apiBase + '/cancel',
-        'rentalUnitsList' : $.leisureLink.apiBase + '/rentalUnits',
-        'updateLog'       : $.leisureLink.apiBase + '/updateLog',
+        'quote'           : $.leisureLink.apiBase + 'quote',
+        'booking'         : $.leisureLink.apiBase + 'booking',
+        'cancellation'    : $.leisureLink.apiBase + 'cancel',
+        'rentalUnitsList' : $.leisureLink.apiBase + 'rentalUnits',
+        'updateLog'       : $.leisureLink.apiBase + 'updateLog',
 
         // Dynamic API URLs
-        'rentalUnitDetail'            : function(unitId){return $.leisureLink.apiBase + '/rentalUnits/' + unitId                        },
-        'rentalUnitAvailability'      : function(unitId){return $.leisureLink.apiBase + '/rentalUnits/' + unitId + '/availability'      },
-        'rentalUnitBaseRates'         : function(unitId){return $.leisureLink.apiBase + '/rentalUnits/' + unitId + '/baseRates'         },
-        'rentalUnitStayRestrictions'  : function(unitId){return $.leisureLink.apiBase + '/rentalUnits/' + unitId + '/stayRestrictions'  },
-        'rentalUnitCheckInInformation': function(unitId){return $.leisureLink.apiBase + '/rentalUnits/' + unitId + '/checkInInformation'},
-        'rentalUnitSpecials'          : function(unitId){return $.leisureLink.apiBase + '/rentalUnits/' + unitId + '/specials'          },
-        'specialAvailability'         : function(specialId){return $.leisureLink.apiBase + '/special/'  + specialId                     }
+        'rentalUnitDetail'            : function(unitId){return $.leisureLink.apiBase + 'rentalUnits/' + unitId                        },
+        'rentalUnitAvailability'      : function(unitId){return $.leisureLink.apiBase + 'rentalUnits/' + unitId + '/availability'      },
+        'rentalUnitBaseRates'         : function(unitId){return $.leisureLink.apiBase + 'rentalUnits/' + unitId + '/baseRates'         },
+        'rentalUnitStayRestrictions'  : function(unitId){return $.leisureLink.apiBase + 'rentalUnits/' + unitId + '/stayRestrictions'  },
+        'rentalUnitCheckInInformation': function(unitId){return $.leisureLink.apiBase + 'rentalUnits/' + unitId + '/checkInInformation'},
+        'rentalUnitSpecials'          : function(unitId){return $.leisureLink.apiBase + 'rentalUnits/' + unitId + '/specials'          },
+        'specialAvailability'         : function(specialId){return $.leisureLink.apiBase + 'special/'  + specialId                     }
     };
 
     //TODO: Rename with the appropriate integrator (ResortZilla, Outrigger, etc.)

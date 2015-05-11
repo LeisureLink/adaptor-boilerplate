@@ -5,7 +5,7 @@ if (!process.env.TEST_ADAPTOR_PORT) {
 }
 
 if (!process.env.TEST_LEISURE_LINK_API_BASE) {
-    process.env.TEST_LEISURE_LINK_API_BASE = 'https://api-dev.leisurelink.com/v1';
+    process.env.TEST_LEISURE_LINK_API_BASE = 'https://api-dev.leisurelink.com/v1/';
 }
 
 // TODO: Substitute value from Confluence

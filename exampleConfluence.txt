@@ -3,8 +3,8 @@
 
 TEST_ADAPTOR_PORT=3016
 TEST_LEISURE_LINK_API_BASE=
-* Development: https://api-dev.leisurelink.com/v1
-* Production: http://104.130.250.126/v1/
+* Development: https://api-dev.leisurelink.com/v1/
+* Production: http://api.leisurelink.com/v1/
 TEST_LEISURE_LINK_API_KEY=
 * NOTE - These keys are linked to the Gryphon's Lodge test properties
 * Development: apiKey=XvKxU-DG18Kc3dP7mlrLYPTRvtXGXzB-
