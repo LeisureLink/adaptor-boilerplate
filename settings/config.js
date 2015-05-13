@@ -1,12 +1,22 @@
+var fs = require('fs');
 var logger = rootRequire('logging/logger');
 var $ = {};
 
 var Configurator = require('env-configurator');
 var configSpec = require('./envConfigSpec');
 var config = new Configurator();
-require('./app_default_env');
 
 $.init = function (callback) {
+    fs.stat('settings/appDefaultEnv.js', function(err, stat) {
+        if (err === null) {
+            require('./appDefaultEnv');
+        }
+
+        fulfillConfig(callback);
+    });
+};
+
+function fulfillConfig(callback) {
     config.fulfill(configSpec, function (errors) {
         if (errors) {
             if (errors.length === 1) {
@@ -23,7 +33,7 @@ $.init = function (callback) {
             callback();
         }
     });
-};
+}
 
 function get(name) {
     // TODO: Update name to match name defined in envConfigSpec.json
