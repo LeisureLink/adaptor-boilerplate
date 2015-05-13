@@ -1,4 +1,5 @@
 // Loads all required environment variables from default values.
+// This is only for assisting developers and should not be included in the Docker image.
 
 if (!process.env.TEST_ADAPTOR_PORT) {
     process.env.TEST_ADAPTOR_PORT = '3016';
