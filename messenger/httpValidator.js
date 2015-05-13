@@ -3,8 +3,10 @@ var parser = require('xml2js').Parser();
 var $ = {};
 
 $.validateJsonResponse = function (response, callback) {
+    var body;
+
     try {
-        var body = response.body;
+        body = response.body;
         if (typeof body === 'string') {
             body = JSON.parse(body);
         }
