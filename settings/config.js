@@ -1,6 +1,5 @@
-var logger = rootRequire('logging/logger');
 var $ = {};
-
+var util = require('util');
 var Configurator = require('env-configurator');
 var configSpec = require('./envConfigSpec');
 var config = new Configurator();
@@ -10,15 +9,7 @@ try { require('./appDefaultEnv'); } catch (e) { }
 $.init = function (callback) {
     config.fulfill(configSpec, function (errors) {
         if (errors) {
-            if (errors.length === 1) {
-                throw errors[0];
-            }
-
-            errors.forEach(function (e) {
-                logger.log('error', '' + e);
-            });
-
-            throw new Error('Configuration errors occurred, see the logs.');
+            throw new Error('Configuration errors occurred: ' + util.inspect(errors));
         } else {
             populateConfig();
             callback();
