@@ -5,7 +5,7 @@ var transportsList = [
     new (winston.transports.Console)({
         timestamp: true,
         prettyPrint: true,
-        depth: 1,
+        depth: 2,
         level: 'info',
         handleExceptions: true,
         colorize: true
