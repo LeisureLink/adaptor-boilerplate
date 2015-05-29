@@ -33,11 +33,25 @@
     "mocha": "2.0.1"
   },
   "jshintConfig": {
-    "predef": [
-      "process",
-      "require",
-      "global",
-      "__dirname"
-    ]
+    "curly": true,
+    "eqeqeq": true,
+    "newcap": true,
+    "noarg": true,
+    "noempty": true,
+    "nonew": true,
+    "sub": true,
+    "undef": true,
+    "unused": true,
+    "trailing": true,
+    "boss": true,
+    "eqnull": true,
+    "immed": true,
+    "expr": true,
+    "latedef": "nofunc",
+    "indent": 2,
+    "node": true,
+    "globals": {
+      "rootRequire": true
+    }
   }
 }

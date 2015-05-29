@@ -6,7 +6,7 @@ var messenger   = rootRequire('messenger/messenger');
 //TODO: import proper transformer
 var transformer = rootRequire('endpoints/transformers/stub_Transformer');
 var logger      = rootRequire('logging/logger');
-$ = {};
+var $ = {};
 
 $.stub = function(request, response){
     //TODO: get any params from the url

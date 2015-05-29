@@ -3,64 +3,6 @@ var js2xml = require('js2xmlparser');
 var httpValidator = rootRequire('messenger/httpValidator');
 var $ = {};
 
-$.get = function(url, args, callback) {
-    args = parseArgs(args);
-    if (args.error){
-        args.error.message = 'Invalid args: ' + error.message;
-        return callback(error, null);
-    }
-
-    request({
-        'url': url,
-        'headers': args.headers,
-        'qs': args.urlParams
-    },
-    function(error, results){
-        if (error){
-            error.url = url;
-            return callback(error, null);
-        }
-        else {
-            return args.transform(results, callback(error, results));
-        }
-    });
-};
-
-$.post = function(url, body, args, callback){
-    args = parseArgs(args);
-    if (args.error){
-        args.error.message = 'Invalid args: ' + error.message;
-        return callback(error, null);
-    }
-
-    request.post({
-        'url': url,
-        'headers': {'Content-Type' : args.contentType},
-        'body': args.message,
-        'qs': args.urlParams
-    },
-    function(error, results){
-        if (error){
-            error.url = url;
-            return callback(error, null);
-        }
-        else {
-            return args.transform(results, callback(error, results));
-        }
-    });
-};
-
-$.sendResponse = function(response, code, body){
-    //TODO: Set any necessary headers
-    //response.header('Content-Type', 'application/xml');
-    //response.header('Content-Type', 'application/json');
-    response.status(code);
-    //TODO: serialize the response appropriately
-    //var message = js2xml('ROOT_NAME', body);
-    //var message = JSON.stringify(body, null, 3);
-    response.send(message);
-};
-
 var parseArgs = function(args, body){
     // Valid options for args are:
     //
@@ -68,10 +10,10 @@ var parseArgs = function(args, body){
     //            Should be a dictionary of key/value pairs.
     //            Defaults to no parameters: {}
     //            e.g. {
-	//	             'supplierId': 12345,
-	//	             'isActive': true,
-	//	             'apiKey': 'asdfsl@sdfa^&8as#2asdf'
-	//            }
+    //	             'supplierId': 12345,
+    //	             'isActive': true,
+    //	             'apiKey': 'asdfsl@sdfa^&8as#2asdf'
+    //            }
     //
     // contentType:  The content type to be used.
     //               Defaults to 'json'
@@ -122,6 +64,64 @@ var parseArgs = function(args, body){
     }
 
     return returnArgs;
+};
+
+$.get = function(url, args, callback) {
+    args = parseArgs(args);
+    if (args.error){
+        args.error.message = 'Invalid args: ' + args.error.message;
+        return callback(args.error, null);
+    }
+
+    request({
+        'url': url,
+        'headers': args.headers,
+        'qs': args.urlParams
+    },
+    function(error, results){
+        if (error){
+            error.url = url;
+            return callback(error, null);
+        }
+        else {
+            return args.transform(results, callback(error, results));
+        }
+    });
+};
+
+$.post = function(url, body, args, callback){
+    args = parseArgs(args);
+    if (args.error){
+        args.error.message = 'Invalid args: ' + args.error.message;
+        return callback(args.error, null);
+    }
+
+    request.post({
+        'url': url,
+        'headers': {'Content-Type' : args.contentType},
+        'body': args.message,
+        'qs': args.urlParams
+    },
+    function(error, results){
+        if (error){
+            error.url = url;
+            return callback(error, null);
+        }
+        else {
+            return args.transform(results, callback(error, results));
+        }
+    });
+};
+
+$.sendResponse = function(response, code, body){
+    //TODO: Set any necessary headers
+    //response.header('Content-Type', 'application/xml');
+    //response.header('Content-Type', 'application/json');
+    response.status(code);
+    //TODO: serialize the response appropriately
+    //var message = js2xml('ROOT_NAME', body);
+    //var message = JSON.stringify(body, null, 3);
+    response.send(message);
 };
 
 module.exports = $;
