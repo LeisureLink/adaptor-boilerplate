@@ -1,21 +1,13 @@
 var $ = {};
 var util = require('util');
+var deasync = require('deasync');
 var Configurator = require('env-configurator');
 var configSpec = require('./envConfigSpec');
 var config = new Configurator();
 
 try { require('./appDefaultEnv'); } catch (e) { }
 
-$.init = function (callback) {
-    config.fulfill(configSpec, function (errors) {
-        if (errors) {
-            throw new Error('Configuration errors occurred: ' + util.inspect(errors));
-        } else {
-            populateConfig();
-            callback();
-        }
-    });
-};
+deasync(config.fulfill)(configSpec);
 
 function get(name) {
     // TODO: Update name to match name defined in envConfigSpec.json

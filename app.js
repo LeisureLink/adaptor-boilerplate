@@ -10,14 +10,10 @@ global.rootRequire = function(filePath){
 };
 
 var config = rootRequire('settings/config');
+rootRequire('settings/appSettings')(app, config);
 
-var loadApp = function () {
-    rootRequire('settings/appSettings')(app, config);
+app.listen(app.get('port'), function () {
+    logger.log('info', 'Express server listening on port ' + app.get('port'));
+});
 
-    app.listen(app.get('port'), function () {
-        logger.log('info', 'Express server listening on port ' + app.get('port'));
-    });
-};
-
-config.init(loadApp);
 module.exports = app;
