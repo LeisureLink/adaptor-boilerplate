@@ -1,39 +1,53 @@
-﻿var winston = require('winston');
-winston.emitErrs = true;
+﻿var path = require('path');
+var winston = require('winston');
 
-var transportsList = [
-    new (winston.transports.Console)({
-        timestamp: true,
-        prettyPrint: true,
-        depth: 2,
-        level: 'info',
-        handleExceptions: true,
-        colorize: true
-    })
-];
-
+var infoLogPath;
+var errorLogPath;
 if (process.env.LOCAL_LOG_FILE === 'true') {
-    transportsList.push(
-        new (winston.transports.File)({
-            level: 'debug',
-            filename: './logs.log',
-            handleExceptions: true,
-            json: true,
-            maxsize: 5242880, //5MB
-            maxFiles: 5,
-            colorize: false
-        })
-    );
+    infoLogPath = path.normalize(__dirname + '/../logs/info.log');
+    errorLogPath = path.normalize(__dirname + '/../logs/error.log');
 }
 
-module.exports = new (winston.Logger)({
-    colors: {
-        error: 'red',
-        info:  'green',
-        warn:  'yellow'
-    },
-    transports: transportsList,
-    exitOnError: false
+var customColors = {
+    info: 'green',
+    warn: 'yellow',
+    error: 'red'
+};
+
+var logger = new (winston.Logger)({
+    colors: customColors,
+    transports: [
+        new (winston.transports.Console)({
+            level: 'info',
+            colorize: true,
+            timestamp: true,
+            prettyPrint: true,
+            depth: 2,
+            handleExceptions: true
+        })
+    ]
 });
 
+if (infoLogPath) {
+    logger.add(winston.transports.DailyRotateFile, {
+        name: 'file.info',
+        filename: infoLogPath,
+        level: 'info',
+        colorize: true,
+        handleExceptions: true,
+        json: true
+    });
+}
 
+if (errorLogPath) {
+    logger.add(winston.transports.DailyRotateFile, {
+        name: 'file.error',
+        filename: errorLogPath,
+        level: 'error',
+        colorize: true,
+        handleExceptions: true,
+        json: true
+    });
+}
+
+module.exports = logger;
