@@ -6,9 +6,9 @@ If you are impatient and would just like to do it on your own, just search the p
 3) From the same command line, run 'mocha'. All tests should pass.
 4) At this point you should have a running express server. If you type 'run app.js', should should be able to open up your browser and navigate to http://localhost:3016/ping.
 5) Go to settings/envConfigSpec.json and follow the instructions.
-5) Go to settings/config.js and fix all of the TODOs.
-6) Go to routes.js and add a new route for the endpoint you would like to add.
-7) To operate the new endpoint, you will need to implement an endpoint controller. Controllers live in the endpoints directory.
+6) Go to settings/config.js and fix all of the TODOs.
+7) Go to routes.js, update the application name, and add a new route for the endpoint you would like to add.
+8) To operate the new endpoint, you will need to implement an endpoint controller. Controllers live in the endpoints directory.
     -The general flow of data through these controllers is messenger -> validator -> transformer -> messenger.
         This data flow has been stubbed out in endpoints/controllers/stub_controller.js and endpoints/transformers/stub_transformer.js.
         To implement a similar flow, copy these files, rename them appropriately, and fix all the TODOs. From there you can add/delete sections to suit your individual adapter needs
