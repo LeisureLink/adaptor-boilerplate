@@ -1,7 +1,7 @@
 var request     = require('request');
 var async       = require('async');
 
-var config      = rootRequire('settings/config');
+var config      = rootRequire('config/config');
 var messenger   = rootRequire('messenger/messenger');
 //TODO: import proper transformer
 var transformer = rootRequire('endpoints/transformers/stub_Transformer');

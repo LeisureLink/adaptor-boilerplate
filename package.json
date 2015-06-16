@@ -51,6 +51,7 @@
     "latedef": "nofunc",
     "indent": 2,
     "node": true,
+    "mocha": true,
     "globals": {
       "rootRequire": true
     }

@@ -5,11 +5,18 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var multer = require('multer');
 var errorhandler = require('errorhandler');
+var logger = rootRequire('logging/logger');
 
 module.exports = function (app, config) {
     app.set('port', config.port);
     app.set('case sensitive routing', true);
-    app.use(morgan('dev'));
+    app.use(morgan('dev', {
+        stream: {
+            write: function (message) {
+                logger.info(message.slice(0, -1));
+            }
+        }
+    }));
     app.use(methodOverride());
     app.use(bodyParser.json());
     app.use(bodyParser.text({type: 'application/xml'}));
