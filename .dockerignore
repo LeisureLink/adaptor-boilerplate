@@ -4,4 +4,4 @@
 .idea
 test
 README.txt
-settings/appDefaultEnv.js
+config/appDefaultEnv.js

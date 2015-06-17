@@ -3,8 +3,12 @@
   // TODO: name must only consist of letters, numbers, and underscore
   "name": "test",
   "keys": [
-    "#/adaptor_port",
+    "#/env",
+    "#/server_port",
     "#/leisure_link/api_base",
     "#/leisure_link/api_key"
+  ],
+  "optional": [
+    "#/env"
   ]
 }

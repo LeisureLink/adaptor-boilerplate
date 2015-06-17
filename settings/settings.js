@@ -26,9 +26,9 @@ module.exports = function (app, config) {
 
     // Load Routes
     var router = express.Router();
-    require('../routes.js')(app, router);
+    rootRequire('routes/routes')(app, router);
 
-    if ('development' === process.env.NODE_ENV) {
+    if (config.env === 'development') {
         app.use(errorhandler());
     }
 };

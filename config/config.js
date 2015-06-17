@@ -14,6 +14,7 @@ function get(name) {
 }
 
 // TODO: Update config object to assign properties using get()
+$.env = get('env') || 'development';
 $.port = process.env.PORT_NUMBER || get('adaptor_port');
 
 $.leisureLink = {};
