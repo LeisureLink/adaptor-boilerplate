@@ -1,11 +1,13 @@
-﻿var express = require('express');
+﻿'use strict';
+
+var express = require('express');
 var morgan = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var multer = require('multer');
 var errorhandler = require('errorhandler');
-var logger = rootRequire('logging/logger');
+var logger = require('lla-logger'); //!todo: change to use new logger
 
 module.exports = function (app, config) {
     app.set('port', config.port);
@@ -26,7 +28,7 @@ module.exports = function (app, config) {
 
     // Load Routes
     var router = express.Router();
-    rootRequire('routes/routes')(app, router);
+    require('../routes/routes')(app, router);
 
     if (config.env === 'development') {
         app.use(errorhandler());

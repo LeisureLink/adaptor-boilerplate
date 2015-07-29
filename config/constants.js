@@ -1,3 +1,5 @@
+'use strict';
+
 var $ = {};
 
 //TODO: add constants. Remember that good style for constants is ALL_CAPS
