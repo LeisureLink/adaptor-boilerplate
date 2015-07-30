@@ -1,5 +1,7 @@
-var pingController = rootRequire('endpoints/controllers/pingController');
-var stubController = rootRequire('endpoints/controllers/stub_controller');
+'use strict';
+
+var pingController = require('../lib/controllers/pingController');
+var stubController = require('../lib/controllers/stub_controller');
 
 module.exports = function (app, router){
     // TODO: Update application name

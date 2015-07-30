@@ -1,7 +1,7 @@
 {
   //TODO: change this name to the name of the adapter project. Then delete this line
   "name": "test",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "scripts": {
     "test": "./node_modules/.bin/mocha test --recursive --full-trace"
@@ -12,48 +12,26 @@
     "cookie-parser": "~1.3.3",
     "deasync": "0.1.0",
     "debug": "~2.0.0",
+    "dreamcatcher-client": "git+ssh://git@github.com/LeisureLink/dreamcatcher-client.git#master",
+    "env-configurator": "git+ssh://git@github.com/LeisureLink/env-configurator.git#develop",
     "errorhandler": "^1.3.0",
     "express": "~4.9.0",
     "express-validator": "^2.7.0",
-    "express-winston": "^0.2.9",
     "express-xml-bodyparser": "0.0.4",
     "js2xmlparser": "^0.1.7",
+    "lla-mapper": "git+ssh://git@github.com/LeisureLink/lla-mapper.git#master",
+    "lla-logger": "git+ssh://git@github.com/LeisureLink/lla-logger.git#master",
     "method-override": "^2.3.0",
     "morgan": "^1.5.0",
     "multer": "^0.1.6",
     "request": "^2.53.0",
     "serve-favicon": "~2.1.3",
     "underscore": "^1.7.0",
-    "winston": "^0.8.3",
-    "xml2js": "^0.4.5",
-    "env-configurator": "git+ssh://git@github.com/LeisureLink/env-configurator.git#develop"
+    "xml2js": "^0.4.5"
   },
   "devDependencies": {
     "chai": "1.10.0",
     "chai-xml": "0.2.0",
     "mocha": "2.0.1"
-  },
-  "jshintConfig": {
-    "curly": true,
-    "eqeqeq": true,
-    "newcap": true,
-    "noarg": true,
-    "noempty": true,
-    "nonew": true,
-    "sub": true,
-    "undef": true,
-    "unused": true,
-    "trailing": true,
-    "boss": true,
-    "eqnull": true,
-    "immed": true,
-    "expr": true,
-    "latedef": "nofunc",
-    "indent": 2,
-    "node": true,
-    "mocha": true,
-    "globals": {
-      "rootRequire": true
-    }
   }
 }
