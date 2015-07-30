@@ -1,7 +1,7 @@
 'use strict';
 
 var app = require('express')();
-var logger = require('lla-logger');
+var logger = require('lla-logger')();
 
 var config = require('./config/config');
 require('./config/settings')(app, config);

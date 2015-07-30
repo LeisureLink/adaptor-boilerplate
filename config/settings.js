@@ -7,7 +7,7 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 var multer = require('multer');
 var errorhandler = require('errorhandler');
-var logger = require('lla-logger'); //!todo: change to use new logger
+var logger = require('lla-logger')();
 
 module.exports = function (app, config) {
     app.set('port', config.port);
