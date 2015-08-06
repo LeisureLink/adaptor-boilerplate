@@ -5,8 +5,8 @@
 //       For the boilerplate adaptor, an example of what should be in Confluence can be found in
 //       exampleConfluence.txt in the repository root.
 
-if (!process.env.TEST_ADAPTOR_PORT) {
-    process.env.TEST_ADAPTOR_PORT = '3016';
+if (!process.env.TEST_SERVER_PORT) {
+    process.env.TEST_SERVER_PORT = '3016';
 }
 
 if (!process.env.TEST_LEISURE_LINK_API_BASE) {
