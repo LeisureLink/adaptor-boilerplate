@@ -29,4 +29,6 @@ $.INTEGRATOR.URLs = {
     //TODO: Add appropriate integrator URLs
 };
 
+$.raygun = get('raygun/api_key');
+
 module.exports = $;

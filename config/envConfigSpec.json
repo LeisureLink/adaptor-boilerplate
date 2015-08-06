@@ -6,9 +6,11 @@
     "#/env",
     "#/server_port",
     "#/leisure_link/api_base",
-    "#/leisure_link/api_key"
+    "#/leisure_link/api_key",
+    "#/raygun/api_key"
   ],
   "optional": [
-    "#/env"
+    "#/env",
+    "#/raygun/api_key"
   ]
 }

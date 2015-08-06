@@ -33,4 +33,16 @@ module.exports = function (app, config) {
     if (config.env === 'development') {
         app.use(errorhandler());
     }
+
+    if (config.raygun) {
+        console.log("Using Raygun for Error Reporting..");
+        var raygun = require('raygun');
+        var raygunClient = new raygun.Client().init({ apiKey: config.raygun });
+        process.on('uncaughtException', function(err) {
+            // TODO: Update app name                            vvvv
+            raygunClient.send(err, { 'env': config.env, 'app': 'test' }, function(){
+                process.exit();
+            });
+        });
+    }
 };
